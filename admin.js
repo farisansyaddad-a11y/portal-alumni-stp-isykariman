@@ -5,7 +5,8 @@ import {
 
 ref,
 onValue,
-remove
+remove,
+update
 
 }
 
@@ -24,20 +25,16 @@ const total =
 document.getElementById("jumlahAlumni");
 
 
-
 const kuliah =
 document.getElementById("jumlahKuliah");
-
 
 
 const kerja =
 document.getElementById("jumlahKerja");
 
 
-
 const usaha =
 document.getElementById("jumlahUsaha");
-
 
 
 
@@ -52,13 +49,13 @@ ref(database,"alumni"),
 table.innerHTML="";
 
 
-let totalData=0;
+let jumlah=0;
 
-let totalKuliah=0;
+let k=0;
 
-let totalKerja=0;
+let kr=0;
 
-let totalUsaha=0;
+let u=0;
 
 
 
@@ -67,75 +64,101 @@ let totalUsaha=0;
 snapshot.forEach((item)=>{
 
 
+const id=item.key;
+
 const data=item.val();
 
 
-totalData++;
+
+jumlah++;
 
 
 
-
-if(data.status=="Kuliah")
-totalKuliah++;
-
+if(data.status==="Kuliah")
+k++;
 
 
-if(data.status=="Kerja")
-totalKerja++;
+if(data.status==="Kerja")
+kr++;
 
 
-
-if(data.status=="Usaha")
-totalUsaha++;
-
-
+if(data.status==="Usaha")
+u++;
 
 
 
 
 
-let row=document.createElement("tr");
+
+
+const tr=document.createElement("tr");
 
 
 
-row.innerHTML=`
+tr.innerHTML=`
 
 <td>
 
-<img src="${data.foto || 'logo.jpg'}"
-width="50">
+<img 
+src="${data.foto || 'logo.jpg'}"
+width="50"
+height="50"
+style="object-fit:cover;border-radius:50%;">
 
 </td>
 
 
+
 <td>
+
 ${data.nama || "-"}
+
 </td>
 
 
+
 <td>
+
 ${data.angkatan || "-"}
+
 </td>
 
 
+
 <td>
+
 ${data.status || "-"}
+
 </td>
 
 
+
 <td>
+
 ${data.prestasi || "-"}
+
 </td>
 
 
 
 <td>
 
-<button onclick="hapusAlumni('${item.key}')">
 
-Hapus
+<button onclick="editAlumni('${id}')">
+
+✏️ Edit
 
 </button>
+
+
+
+<button onclick="hapusAlumni('${id}')">
+
+🗑️ Hapus
+
+</button>
+
+
 
 </td>
 
@@ -143,7 +166,7 @@ Hapus
 
 
 
-table.appendChild(row);
+table.appendChild(tr);
 
 
 
@@ -152,17 +175,19 @@ table.appendChild(row);
 
 
 
-total.innerHTML=totalData;
+total.innerHTML=jumlah;
 
-kuliah.innerHTML=totalKuliah;
+kuliah.innerHTML=k;
 
-kerja.innerHTML=totalKerja;
+kerja.innerHTML=kr;
 
-usaha.innerHTML=totalUsaha;
+usaha.innerHTML=u;
 
 
 
 });
+
+
 
 
 
@@ -173,15 +198,107 @@ usaha.innerHTML=totalUsaha;
 window.hapusAlumni=function(id){
 
 
-if(confirm("Hapus data alumni ini?")){
+
+if(confirm("Yakin hapus data alumni?")){
 
 
 remove(
+
 ref(database,"alumni/"+id)
+
+)
+
+.then(()=>{
+
+
+alert("Data berhasil dihapus");
+
+
+});
+
+
+}
+
+
+};
+
+
+
+
+
+
+
+
+
+window.editAlumni=function(id){
+
+
+
+const nama =
+prompt(
+"Nama Alumni baru:"
 );
 
 
+
+const angkatan =
+prompt(
+"Angkatan:"
+);
+
+
+
+const status =
+prompt(
+"Status (Kuliah/Kerja/Usaha):"
+);
+
+
+
+const prestasi =
+prompt(
+"Prestasi:"
+);
+
+
+
+
+
+if(nama){
+
+
+
+update(
+
+ref(database,"alumni/"+id),
+
+
+{
+
+nama:nama,
+
+angkatan:angkatan,
+
+status:status,
+
+prestasi:prestasi
+
 }
+
+)
+
+
+
+.then(()=>{
+
+
+alert("Data berhasil diperbarui");
+
+
+});
 
 
 }
+
+
+};
