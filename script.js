@@ -2,16 +2,17 @@ import { database } from "./firebase-config.js";
 
 
 import {
-    ref,
-    push,
-    set
-} 
+
+ref,
+push,
+set
+
+}
+
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
 
 
-
-// Ambil form
 
 const form =
 document.getElementById("formAlumni");
@@ -25,55 +26,55 @@ document.getElementById("foto");
 
 
 
-
 form.addEventListener("submit",(e)=>{
 
 
-    e.preventDefault();
+e.preventDefault();
 
 
 
-    const file =
-    fotoInput.files[0];
+
+
+const file =
+fotoInput.files[0];
 
 
 
-    // Jika ada foto
-
-    if(file){
 
 
-
-        const reader =
-        new FileReader();
+if(file){
 
 
-
-        reader.onload = function(){
-
-
-            simpanData(reader.result);
-
-
-        };
+const reader =
+new FileReader();
 
 
 
-        reader.readAsDataURL(file);
+reader.onload = function(){
+
+
+simpanData(reader.result);
+
+
+};
 
 
 
-    }
+reader.readAsDataURL(file);
 
 
-    // Jika tidak ada foto
 
-    else{
+}
+
+else{
 
 
-        simpanData("");
+simpanData("");
 
-    }
+
+
+}
+
 
 
 
@@ -87,97 +88,96 @@ form.addEventListener("submit",(e)=>{
 
 
 
+
 function simpanData(foto){
 
 
 
-    const dataAlumni = {
+const dataAlumni = {
 
 
-        nama:
-        document.getElementById("nama").value,
-
-
-
-        angkatan:
-        document.getElementById("angkatan").value,
+nama:
+document.getElementById("nama").value,
 
 
 
-        tahun:
-        document.getElementById("tahun").value,
+angkatan:
+document.getElementById("angkatan").value,
 
 
 
-        whatsapp:
-        document.getElementById("whatsapp").value,
+tahun:
+document.getElementById("tahun").value,
 
 
 
-        email:
-        document.getElementById("email").value,
+email:
+document.getElementById("email").value,
 
 
 
-        sekolah:
-        document.getElementById("sekolah").value,
+whatsapp:
+document.getElementById("whatsapp").value,
 
 
 
-        status:
-        document.getElementById("status").value,
+sekolah:
+document.getElementById("sekolah")?.value || "STP Isykariman",
 
 
 
-        prestasi:
-        document.getElementById("prestasi").value,
+status:
+document.getElementById("status").value,
 
 
 
-        foto:
-        foto
-
-
-    };
+prestasi:
+document.getElementById("prestasi").value,
 
 
 
+foto:
+foto
 
 
-
-
-    const dataBaru =
-    push(ref(database,"alumni"));
+};
 
 
 
 
 
-    set(dataBaru,dataAlumni)
 
-    .then(()=>{
-
-
-        alert("Data alumni berhasil dikirim");
-
-
-        form.reset();
+const dataBaru =
+push(ref(database,"alumni"));
 
 
 
-    })
+
+set(dataBaru,dataAlumni)
+
+.then(()=>{
 
 
-    .catch((error)=>{
+alert("Data alumni berhasil dikirim");
 
 
-        alert(
-        "Gagal menyimpan data : "
-        + error.message
-        );
+form.reset();
 
 
-    });
+})
+
+
+
+.catch((error)=>{
+
+
+alert(
+"Gagal mengirim data: "
++ error.message
+);
+
+
+});
 
 
 
