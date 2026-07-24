@@ -15,7 +15,7 @@ from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
 
 
-const dataTable =
+const table =
 document.getElementById("dataAlumni");
 
 
@@ -44,22 +44,21 @@ document.getElementById("jumlahUsaha");
 
 
 onValue(
-
 ref(database,"alumni"),
 
 (snapshot)=>{
 
 
-dataTable.innerHTML="";
+table.innerHTML="";
 
 
 let totalData=0;
 
-let k=0;
+let totalKuliah=0;
 
-let kr=0;
+let totalKerja=0;
 
-let u=0;
+let totalUsaha=0;
 
 
 
@@ -76,19 +75,18 @@ totalData++;
 
 
 
-
 if(data.status=="Kuliah")
-k++;
+totalKuliah++;
 
 
 
 if(data.status=="Kerja")
-kr++;
+totalKerja++;
 
 
 
 if(data.status=="Usaha")
-u++;
+totalUsaha++;
 
 
 
@@ -96,37 +94,44 @@ u++;
 
 
 
-const tr=document.createElement("tr");
+let row=document.createElement("tr");
 
 
 
-tr.innerHTML=`
+row.innerHTML=`
 
 <td>
 
-${data.foto ? 
-"<img src='"+data.foto+"' width='50'>"
-:
-"Tidak ada foto"}
+<img src="${data.foto || 'logo.jpg'}"
+width="50">
 
 </td>
 
 
-<td>${data.nama || "-"}</td>
+<td>
+${data.nama || "-"}
+</td>
 
 
-<td>${data.angkatan || "-"}</td>
+<td>
+${data.angkatan || "-"}
+</td>
 
 
-<td>${data.status || "-"}</td>
+<td>
+${data.status || "-"}
+</td>
 
 
-<td>${data.prestasi || "-"}</td>
+<td>
+${data.prestasi || "-"}
+</td>
+
 
 
 <td>
 
-<button class="hapus" data-id="${item.key}">
+<button onclick="hapusAlumni('${item.key}')">
 
 Hapus
 
@@ -138,54 +143,22 @@ Hapus
 
 
 
-
-
-dataTable.appendChild(tr);
-
-
-
+table.appendChild(row);
 
 
 
 });
-
 
 
 
 
 total.innerHTML=totalData;
 
-kuliah.innerHTML=k;
+kuliah.innerHTML=totalKuliah;
 
-kerja.innerHTML=kr;
+kerja.innerHTML=totalKerja;
 
-usaha.innerHTML=u;
-
-
-
-
-
-
-document
-.querySelectorAll(".hapus")
-.forEach((btn)=>{
-
-
-btn.onclick=()=>{
-
-
-if(confirm("Hapus data alumni?")){
-
-
-remove(
-ref(database,"alumni/"+btn.dataset.id)
-);
-
-
-}
-
-
-}
+usaha.innerHTML=totalUsaha;
 
 
 
@@ -195,6 +168,20 @@ ref(database,"alumni/"+btn.dataset.id)
 
 
 
+
+
+window.hapusAlumni=function(id){
+
+
+if(confirm("Hapus data alumni ini?")){
+
+
+remove(
+ref(database,"alumni/"+id)
+);
+
+
 }
 
-);
+
+}
