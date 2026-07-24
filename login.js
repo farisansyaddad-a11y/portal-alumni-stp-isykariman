@@ -2,29 +2,36 @@ import { auth } from "./firebase-config.js";
 
 
 import {
+
 signInWithEmailAndPassword
+
 }
+
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
 
-const form = document.getElementById("loginForm");
+
+
+const btn = document.getElementById("loginBtn");
 
 
 
-form.addEventListener("submit",(e)=>{
 
 
-e.preventDefault();
-
+btn.addEventListener("click",()=>{
 
 
 const email =
 document.getElementById("email").value;
 
 
+
 const password =
 document.getElementById("password").value;
+
+
+
 
 
 
@@ -34,10 +41,8 @@ email,
 password
 )
 
+
 .then(()=>{
-
-
-alert("Login berhasil");
 
 
 window.location.href="admin.html";
@@ -49,10 +54,15 @@ window.location.href="admin.html";
 .catch((error)=>{
 
 
-alert(error.message);
+alert(
+"Login gagal: "
++
+error.message
+);
 
 
 });
+
 
 
 });
