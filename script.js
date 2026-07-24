@@ -33,8 +33,6 @@ e.preventDefault();
 
 
 
-
-
 const file =
 fotoInput.files[0];
 
@@ -50,7 +48,7 @@ new FileReader();
 
 
 
-reader.onload = function(){
+reader.onload=function(){
 
 
 simpanData(reader.result);
@@ -77,10 +75,7 @@ simpanData("");
 
 
 
-
-
 });
-
 
 
 
@@ -100,40 +95,32 @@ nama:
 document.getElementById("nama").value,
 
 
-
 angkatan:
 document.getElementById("angkatan").value,
-
 
 
 tahun:
 document.getElementById("tahun").value,
 
 
-
 email:
 document.getElementById("email").value,
-
 
 
 whatsapp:
 document.getElementById("whatsapp").value,
 
 
-
 sekolah:
 document.getElementById("sekolah")?.value || "STP Isykariman",
-
 
 
 status:
 document.getElementById("status").value,
 
 
-
 prestasi:
 document.getElementById("prestasi").value,
-
 
 
 foto:
@@ -146,9 +133,9 @@ foto
 
 
 
-
 const dataBaru =
 push(ref(database,"alumni"));
+
 
 
 
@@ -158,10 +145,26 @@ set(dataBaru,dataAlumni)
 .then(()=>{
 
 
-alert("Data alumni berhasil dikirim");
+alert(
+"✅ Data alumni berhasil dikirim!\n\nTerima kasih sudah bergabung."
+);
+
 
 
 form.reset();
+
+
+
+// otomatis kembali ke halaman utama
+
+setTimeout(()=>{
+
+
+window.location.href="index.html";
+
+
+},1000);
+
 
 
 })
@@ -175,6 +178,7 @@ alert(
 "Gagal mengirim data: "
 + error.message
 );
+
 
 
 });
