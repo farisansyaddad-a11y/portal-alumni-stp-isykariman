@@ -34,4 +34,70 @@ margin:8px 0;
 
 
 
+}/* WEBSITE SEKOLAH BUTTON */
+
+.school-button{
+
+background:white;
+
+color:#0B6B4F;
+
+border:2px solid #D4AF37;
+
+}
+
+
+
+
+.hero-button{
+
+display:flex;
+
+flex-wrap:wrap;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+
+.hero-button{
+
+display:block;
+
+}
+
+
+
+.hero-button a{
+
+display:block;
+
+width:100%;
+
+}
+
+
+
+.hero-button button{
+
+width:100%;
+
+margin:8px 0;
+
+}
+
+
+
+.school-button{
+
+font-size:15px;
+
+}
+
+
+
 }
