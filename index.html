@@ -8,11 +8,10 @@ Portal Alumni STP Isykariman
 </title>
 
 
-<link rel="icon" href="logo.png">
+<link rel="icon" href="logo.jpg">
 
 
 <link rel="stylesheet" href="landing.css">
-
 
 </head>
 
@@ -27,12 +26,10 @@ Portal Alumni STP Isykariman
 <div class="logo">
 
 
-<img src="logo.png">
-
+<img src="logo.jpg">
 
 
 <div>
-
 
 <strong>
 STP ISYKARIMAN
@@ -44,7 +41,6 @@ Portal Alumni
 </span>
 
 
-
 </div>
 
 
@@ -54,8 +50,7 @@ Portal Alumni
 
 
 
-
-<div class="menu">
+<div class="menu" id="menu">
 
 
 <a href="index.html">
@@ -82,8 +77,17 @@ Admin
 
 
 
-</nav>
 
+
+<div class="hamburger" onclick="toggleMenu()">
+
+☰
+
+</div>
+
+
+
+</nav>
 
 
 
@@ -94,9 +98,7 @@ Admin
 <section class="hero">
 
 
-
 <div class="hero-text">
-
 
 
 <h1>
@@ -108,7 +110,6 @@ Portal Alumni
 STP Isykariman
 
 </h1>
-
 
 
 
@@ -180,12 +181,18 @@ memperkuat silaturahmi dan kontribusi nyata.
 
 <div class="card">
 
-<h1>
-100+
+
+<h1 id="totalAlumni">
+
+0
+
 </h1>
 
+
 <p>
-Alumni
+
+👥 Alumni
+
 </p>
 
 
@@ -194,14 +201,22 @@ Alumni
 
 
 
+
+
 <div class="card">
 
+
 <h1>
+
 2017
+
 </h1>
 
+
 <p>
-Angkatan
+
+📅 Angkatan
+
 </p>
 
 
@@ -211,14 +226,22 @@ Angkatan
 
 
 
+
+
 <div class="card">
 
-<h1>
-100+
+
+<h1 id="totalPrestasi">
+
+0
+
 </h1>
 
+
 <p>
-Prestasi
+
+🏆 Prestasi
+
 </p>
 
 
@@ -227,6 +250,7 @@ Prestasi
 
 
 </section>
+
 
 
 
@@ -245,12 +269,12 @@ Tentang STP Isykariman
 </h2>
 
 
+
 <p>
 
 Pondok Pesantren Isykariman berkomitmen
 membentuk generasi yang berilmu,
-berakhlak, dan memiliki kontribusi nyata
-bagi masyarakat.
+berakhlak, dan memiliki kontribusi nyata.
 
 </p>
 
@@ -263,8 +287,9 @@ bagi masyarakat.
 
 
 
-<section class="feature">
 
+
+<section class="feature">
 
 
 <div>
@@ -276,7 +301,6 @@ bagi masyarakat.
 <p>
 Membangun karakter dan keilmuan siswa.
 </p>
-
 
 </div>
 
@@ -293,7 +317,6 @@ Membangun karakter dan keilmuan siswa.
 Menjaga hubungan keluarga besar alumni.
 </p>
 
-
 </div>
 
 
@@ -309,12 +332,11 @@ Menjaga hubungan keluarga besar alumni.
 Berkarya untuk umat dan bangsa.
 </p>
 
-
 </div>
 
 
-
 </section>
+
 
 
 
@@ -333,14 +355,11 @@ Anda Alumni STP Isykariman?
 </h2>
 
 
-
 <p>
 
 Mari tetap terhubung bersama keluarga besar alumni.
 
 </p>
-
-
 
 
 <a href="form.html">
@@ -354,9 +373,7 @@ Daftar Sekarang
 </a>
 
 
-
 </section>
-
 
 
 
@@ -368,6 +385,37 @@ Daftar Sekarang
 © 2026 Portal Alumni STP Isykariman
 
 </footer>
+
+
+
+
+
+
+
+
+<script>
+
+
+function toggleMenu(){
+
+
+document
+.getElementById("menu")
+.classList.toggle("active");
+
+
+}
+
+
+</script>
+
+
+
+
+
+
+
+<script type="module" src="stats.js"></script>
 
 
 

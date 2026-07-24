@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
 
 
@@ -10,19 +9,23 @@ Form Alumni STP Isykariman
 </title>
 
 
+<link rel="icon" href="logo.jpg">
+
+
 <link rel="stylesheet" href="form.css">
 
 
 </head>
 
 
-
 <body>
 
 
 
-<div class="form-container">
+<div class="header">
 
+
+<img src="logo.jpg">
 
 
 <h1>
@@ -32,18 +35,25 @@ STP Isykariman
 </h1>
 
 
-
-<p class="subtitle">
-
+<p>
 Lengkapi data alumni untuk mempererat silaturahmi
-
 </p>
 
 
+</div>
+
+
+
+
+
+
+<div class="form-box">
 
 
 
 <form id="formAlumni">
+
+
 
 
 
@@ -66,6 +76,8 @@ accept="image/*"
 
 
 
+
+
 <label>
 Nama Lengkap
 </label>
@@ -75,11 +87,13 @@ Nama Lengkap
 
 id="nama"
 
-placeholder="Nama Lengkap"
+placeholder="Masukkan nama lengkap"
 
 required
 
 >
+
+
 
 
 
@@ -104,6 +118,8 @@ required
 
 
 
+
+
 <label>
 Tahun Lulus
 </label>
@@ -113,9 +129,11 @@ Tahun Lulus
 
 id="tahun"
 
-placeholder="Tahun Lulus"
+placeholder="Contoh: 2022"
 
 >
+
+
 
 
 
@@ -132,9 +150,11 @@ id="email"
 
 type="email"
 
-placeholder="Email"
+placeholder="Email aktif"
 
 >
+
+
 
 
 
@@ -157,6 +177,8 @@ placeholder="Nomor WhatsApp"
 
 
 
+
+
 <label>
 Asal Sekolah
 </label>
@@ -166,9 +188,10 @@ Asal Sekolah
 
 id="sekolah"
 
-placeholder="Asal Sekolah"
+placeholder="Asal sekolah"
 
 >
+
 
 
 
@@ -178,6 +201,7 @@ placeholder="Asal Sekolah"
 <label>
 Status Saat Ini
 </label>
+
 
 
 <select id="status">
@@ -198,6 +222,11 @@ Usaha
 </option>
 
 
+<option>
+Lainnya
+</option>
+
+
 </select>
 
 
@@ -205,18 +234,21 @@ Usaha
 
 
 
+
 <label>
-Prestasi
+Prestasi / Pengalaman
 </label>
+
 
 
 <textarea
 
 id="prestasi"
 
-placeholder="Prestasi atau pengalaman"
+placeholder="Tuliskan prestasi atau pengalaman"
 
 ></textarea>
+
 
 
 
@@ -237,8 +269,8 @@ Kirim Data Alumni
 </form>
 
 
-
 </div>
+
 
 
 
@@ -249,7 +281,7 @@ Kirim Data Alumni
 <script type="module" src="script.js"></script>
 
 
-</body>
 
+</body>
 
 </html>

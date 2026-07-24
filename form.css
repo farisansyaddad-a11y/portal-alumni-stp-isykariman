@@ -1,15 +1,22 @@
 *{
+
 box-sizing:border-box;
+
 }
+
 
 
 body{
 
+
 margin:0;
+
 
 font-family:"Segoe UI",Arial,sans-serif;
 
+
 background:#f5f8f6;
+
 
 }
 
@@ -17,77 +24,126 @@ background:#f5f8f6;
 
 
 
-.form-container{
+.header{
 
-width:450px;
 
-max-width:90%;
+background:#0B6B4F;
 
-margin:50px auto;
+
+color:white;
+
+
+text-align:center;
+
+
+padding:40px 20px;
+
+
+}
+
+
+
+
+
+.header img{
+
+
+width:90px;
+
+
+height:90px;
+
+
+object-fit:contain;
+
+
+}
+
+
+
+
+
+.header h1{
+
+
+font-size:32px;
+
+
+margin:15px 0;
+
+
+}
+
+
+
+
+
+.form-box{
+
+
+width:500px;
+
+
+max-width:92%;
+
+
+margin:30px auto;
+
 
 background:white;
 
-padding:35px;
+
+padding:30px;
+
 
 border-radius:25px;
 
+
 box-shadow:
 
-0 15px 40px rgba(0,0,0,.1);
+
+0 15px 35px rgba(0,0,0,.1);
 
 
 }
 
-
-
-
-
-h1{
-
-text-align:center;
-
-color:#0B6B4F;
-
-}
-
-
-
-
-
-.subtitle{
-
-text-align:center;
-
-color:#666;
-
-}
 
 
 
 
 label{
 
+
+display:block;
+
+
 font-weight:bold;
 
+
+margin-top:15px;
+
+
 color:#333;
+
 
 }
 
 
 
 
+
 input,
-textarea,
-select{
+select,
+textarea{
 
 
 width:100%;
 
 
-padding:13px;
+padding:14px;
 
 
-margin:10px 0 20px;
+margin-top:8px;
 
 
 border-radius:12px;
@@ -106,7 +162,12 @@ font-size:15px;
 
 textarea{
 
-height:100px;
+
+height:120px;
+
+
+resize:none;
+
 
 }
 
@@ -120,7 +181,10 @@ button{
 width:100%;
 
 
-padding:15px;
+padding:16px;
+
+
+margin-top:25px;
 
 
 border:none;
@@ -135,7 +199,7 @@ background:#0B6B4F;
 color:white;
 
 
-font-size:16px;
+font-size:17px;
 
 
 font-weight:bold;
@@ -148,9 +212,12 @@ cursor:pointer;
 
 
 
+
 button:hover{
 
-background:#09563f;
+
+background:#084d39;
+
 
 }
 
@@ -158,27 +225,41 @@ background:#09563f;
 
 
 
-.foto-preview{
+
+@media(max-width:600px){
 
 
-display:block;
 
-margin:auto;
-
-
-width:120px;
+.header h1{
 
 
-height:120px;
+font-size:26px;
 
 
-border-radius:50%;
+}
 
 
-object-fit:cover;
+
+.form-box{
 
 
-border:5px solid #D4AF37;
+padding:20px;
+
+
+}
+
+
+
+input,
+select,
+textarea{
+
+
+font-size:16px;
+
+
+}
+
 
 
 }
