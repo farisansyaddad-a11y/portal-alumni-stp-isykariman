@@ -4,15 +4,23 @@
 <head>
 
 <title>
-Login Admin
+Login Admin STP Isykariman
 </title>
 
+
 <link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="back.css">
 
 </head>
 
 
+
 <body>
+
+
+
+<div class="login-box">
 
 
 <h1>
@@ -20,24 +28,39 @@ Login Admin
 </h1>
 
 
-<form id="loginForm">
+<input 
+id="email"
+placeholder="Email"
+>
 
 
-<input id="email"
-placeholder="Email">
-
-
-<input id="password"
+<input
+id="password"
 type="password"
-placeholder="Password">
+placeholder="Password"
+>
 
 
-<button>
+
+<button id="loginBtn">
+
 Login
+
 </button>
 
 
-</form>
+
+<a href="index.html" class="back-button">
+
+⬅ Kembali ke Beranda
+
+</a>
+
+
+
+</div>
+
+
 
 
 <script type="module" src="login.js"></script>

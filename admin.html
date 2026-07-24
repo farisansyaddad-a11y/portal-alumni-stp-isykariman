@@ -4,35 +4,60 @@
 <head>
 
 <title>
-Dashboard Data Alumni
+Dashboard Admin Alumni
 </title>
 
 
 <link rel="stylesheet" href="style.css">
 
-</head>
+<link rel="stylesheet" href="back.css">
 
+
+</head>
 
 
 <body>
 
 
 
+<div class="admin-container">
+
+
+
 <h1>
+
 Dashboard Data Alumni
+
 </h1>
+
+
+
+
+<a href="index.html" class="back-button">
+
+⬅ Kembali ke Beranda
+
+</a>
 
 
 
 
 
 <button id="logoutBtn">
+
 Logout
+
 </button>
 
 
-<button id="exportBtn">
+
+
+
+
+<button id="downloadBtn">
+
 📥 Download Excel
+
 </button>
 
 
@@ -40,87 +65,75 @@ Logout
 
 
 
-<!-- STATISTIK -->
+
 
 <div class="stats">
 
 
 <div class="card">
 
-<h3>
-Total Alumni
-</h3>
+<h2>Total Alumni</h2>
 
-<h1 id="totalAlumni">
+<h1 id="jumlahAlumni">
 0
 </h1>
+
 
 </div>
 
 
 
-
 <div class="card">
 
-<h3>
-Kuliah
-</h3>
+<h2>Kuliah</h2>
 
 <h1 id="jumlahKuliah">
 0
 </h1>
 
-</div>
 
+</div>
 
 
 
 <div class="card">
 
-<h3>
-Kerja
-</h3>
+<h2>Kerja</h2>
 
 <h1 id="jumlahKerja">
 0
 </h1>
 
-</div>
 
+</div>
 
 
 
 <div class="card">
 
-<h3>
-Usaha
-</h3>
+<h2>Usaha</h2>
 
 <h1 id="jumlahUsaha">
 0
 </h1>
 
-</div>
-
-
 
 </div>
 
 
 
+</div>
 
 
 
 
 
-
-<!-- SEARCH -->
 
 <input
 
 id="searchAlumni"
 
-placeholder="🔎 Cari nama alumni..."
+placeholder="🔎 Cari alumni..."
 
 >
 
@@ -129,27 +142,22 @@ placeholder="🔎 Cari nama alumni..."
 
 
 
-
-
-
 <h2>
+
 Daftar Alumni
+
 </h2>
 
 
 
 
 
-
-
-<table border="1" width="95%">
+<table>
 
 
 <thead>
 
-
 <tr>
-
 
 <th>
 Foto
@@ -181,7 +189,6 @@ Aksi
 </th>
 
 
-
 </tr>
 
 
@@ -190,8 +197,8 @@ Aksi
 
 
 
+<tbody id="dataAlumni">
 
-<tbody id="tabelAlumni">
 
 </tbody>
 
@@ -204,220 +211,15 @@ Aksi
 
 
 
-
-
-
-<!-- DETAIL MODAL -->
-
-
-<div id="detailModal" class="modal">
-
-
-<div class="modal-content">
-
-
-<span id="closeModal">
-❌
-</span>
-
-
-
-
-<img
-id="detailFoto"
-width="120"
-height="120"
-style="border-radius:50%;object-fit:cover;"
->
-
-
-
-
-
-<h2>
-Detail Alumni
-</h2>
-
-
-
-
-<p>
-<b>Nama:</b>
-<span id="detailNama"></span>
-</p>
-
-
-
-<p>
-<b>Angkatan:</b>
-<span id="detailAngkatan"></span>
-</p>
-
-
-
-<p>
-<b>Email:</b>
-<span id="detailEmail"></span>
-</p>
-
-
-
-<p>
-<b>WhatsApp:</b>
-<span id="detailWhatsapp"></span>
-</p>
-
-
-
-<p>
-<b>Sekolah:</b>
-<span id="detailSekolah"></span>
-</p>
-
-
-
-<p>
-<b>Status:</b>
-<span id="detailStatus"></span>
-</p>
-
-
-
-<p>
-<b>Prestasi:</b>
-<span id="detailPrestasi"></span>
-</p>
-
-
-
-
-</div>
-
 </div>
 
 
-
-
-
-
-
-
-
-<!-- EDIT MODAL -->
-
-
-<div id="editModal" class="modal">
-
-
-<div class="modal-content">
-
-
-<span id="closeEdit">
-❌
-</span>
-
-
-
-<h2>
-Edit Data Alumni
-</h2>
-
-
-
-
-
-<input
-id="editNama"
-placeholder="Nama Lengkap"
->
-
-
-
-
-<input
-id="editAngkatan"
-placeholder="Angkatan"
->
-
-
-
-
-<input
-id="editEmail"
-placeholder="Email"
->
-
-
-
-
-<input
-id="editWhatsapp"
-placeholder="WhatsApp"
->
-
-
-
-
-<input
-id="editSekolah"
-placeholder="Sekolah"
->
-
-
-
-
-<input
-id="editStatus"
-placeholder="Status"
->
-
-
-
-
-
-<textarea
-
-id="editPrestasi"
-
-placeholder="Prestasi"
-
-></textarea>
-
-
-
-
-
-
-<button id="saveEdit">
-
-💾 Simpan Perubahan
-
-</button>
-
-
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
 
 
 <script type="module" src="admin.js"></script>
 
 
-
 </body>
-
 
 </html>
